@@ -3,8 +3,9 @@ ExitProcess PROTO
 WriteConsoleA PROTO
 
 .data
-msg BYTE "Hello World",0
+msg BYTE "Hello world",0
 bytesWritten DWORD ?
+adi db 65,68,73
 
 .code
 main PROC
@@ -14,8 +15,8 @@ main PROC
     call GetStdHandle
 
     mov  rcx, rax       
-    lea  rdx, msg    
-    mov  r8, LENGTHOF msg - 1
+    lea  rdx, msg
+    mov  r8, LENGTHOF msg-1
     lea  r9, bytesWritten  
     mov  QWORD PTR [rsp + 4 * SIZEOF QWORD], 0
     call WriteConsoleA
