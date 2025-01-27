@@ -1,8 +1,8 @@
 .section .data
 .section .text
-.globl main
+.globl _start
     
-main:
+_start:
     movl $1, %eax
-    movl $0, %ebx
+    movl $99, %ebx
     int $0x80
